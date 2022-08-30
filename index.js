@@ -1,6 +1,7 @@
 // imports
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 // video routes
 const videos = require("./routes/videos");
@@ -8,6 +9,7 @@ const videos = require("./routes/videos");
 // set responses in json, public folder
 app.use(express.json());
 app.use(express.static("public"));
+app.use(cors());
 
 // console log all requests
 app.use((req, res, next) => {
