@@ -13,7 +13,7 @@ app.use(cors());
 
 // console log all requests
 app.use((req, res, next) => {
-  console.log(`Incoming request from ${req.originalUrl}`);
+  console.info(`Incoming request from ${req.originalUrl}`);
   next();
 });
 
@@ -25,5 +25,5 @@ app.get("/", (req, res) => {
 app.use("/videos", videos);
 
 app.listen(8888, () => {
-  console.log(`Server running on port ${8888}`);
+  console.info(`Server running on port ${8888}`);
 });
