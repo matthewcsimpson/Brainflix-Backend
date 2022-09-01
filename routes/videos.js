@@ -46,7 +46,8 @@ router.post("/", (req, res) => {
     timestamp: Date.now(),
     comments: [],
   };
-  res.json(newVideo);
+  videos.push(newVideo);
+  res.json(videos);
 });
 
 module.exports = router;
