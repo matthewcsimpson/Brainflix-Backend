@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const fs = require("fs");
-const { off } = require("process");
 const { v4: uuid4 } = require("uuid");
 
 /**
@@ -95,6 +94,10 @@ router.post("/", (req, res) => {
       res.status(201).json(newVideo);
     }
   });
+});
+
+router.post("/:id/comments", (req, res) => {
+  res.send("I CAN SEE YOU");
 });
 
 module.exports = router;
