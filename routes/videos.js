@@ -4,13 +4,17 @@ const fs = require("fs");
 const { v4: uuid4 } = require("uuid");
 
 /**
- * Load the video list from the JSON file
+ * Load the video list from the JSON file.
  * @param {function} callback
  */
 const loadVideos = (callback) => {
   fs.readFile("./data/videos.json", "utf8", callback);
 };
 
+/**
+ * Write the videos list back to the JSON file.
+ * @param {function} callback
+ */
 const writeVideos = (callback) => {
   fs.writeFile("./data/videos.json", callback, (err) => {
     if (err) {
@@ -97,7 +101,25 @@ router.post("/", (req, res) => {
 });
 
 router.post("/:id/comments", (req, res) => {
-  res.send("I CAN SEE YOU");
+  const newComment = {
+    id: uuid4(),
+    name: "Testing Testerson III",
+    comment: req.body.comment,
+    likes: 0,
+    timestamp: req.body.timestamp,
+  };
+
+  loadVideos((err, data) => {
+    if (err) {
+      console.error(err);
+    } else {
+      const videoList = JSON.parse(data);
+      const temp = videoList.find((vid) => vid.id === req.body.videoid);
+      console.log(temp.comments);
+      temp.comments.push(newComment);
+      console.log(temp.comments);
+    }
+  });
 });
 
 module.exports = router;
