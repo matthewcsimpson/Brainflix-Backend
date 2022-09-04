@@ -114,10 +114,15 @@ router.post("/:id/comments", (req, res) => {
       console.error(err);
     } else {
       const videoList = JSON.parse(data);
-      const temp = videoList.find((vid) => vid.id === req.body.videoid);
-      console.log(temp.comments);
-      temp.comments.push(newComment);
-      console.log(temp.comments);
+
+      console.log(
+        videoList
+          .find((vid) => vid.id === req.body.videoid)
+          .comments.push(newComment)
+      );
+
+      writeVideos(JSON.stringify(videoList));
+      res.status(201).json(newComment);
     }
   });
 });
