@@ -6,6 +6,8 @@ The front end is created with React.js and uses React Router, Axios, DotEnv, as 
 
 A user can leave comments on the existing videos and simulate uploading a new video. The site is designed responsively with breakpoints set for mobile, tablet, and desktop viewport sizes.
 
+Be sure to also [check out the front end repository](https://github.com/matthewcsimpson/Brainflix-Frontend). 
+
 ### Endpoints:
 
 #### GET list of videos
@@ -14,7 +16,7 @@ A user can leave comments on the existing videos and simulate uploading a new vi
   GET /videos
 ```
 
-#### Get a specific movie
+#### GET a specific video
 
 ```http
   GET /videos/:id
@@ -22,4 +24,22 @@ A user can leave comments on the existing videos and simulate uploading a new vi
 
 | Parameter  | Type     | Description                       |
 | :--------- | :------- | :-------------------------------- |
-| `id ` | `number` | **Required**. Id of item to fetch |
+| `id ` | `number` | **Required**. Id of video to fetch |
+
+#### POST a comment to video
+
+```http
+  POST /videos/:id/comments
+```
+
+| Parameter  | Type     | Description                       |
+| :--------- | :------- | :-------------------------------- |
+| `id ` | `number` | **Required**. Id of video of which to attach a comment |
+
+
+#### POST a new video
+
+```http
+  POST /videos/
+```
+
