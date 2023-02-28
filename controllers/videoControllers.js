@@ -98,13 +98,11 @@ const postNewComment = (req, res) => {
       console.error(err);
     } else {
       const videoList = JSON.parse(data);
-
       videoList
         .find((vid) => vid.id === req.body.videoid)
         .comments.push(newComment);
-
       writeVideos(JSON.stringify(videoList));
-      res.status(201).json(newComment);
+      res.status(201).json(videoList);
     }
   });
 };
