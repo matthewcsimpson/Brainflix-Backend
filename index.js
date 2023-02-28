@@ -19,7 +19,7 @@ app.use((req, _res, next) => {
 
 // get the main page
 app.get("/", (_req, res) => {
-  res.send("I'm here, yo");
+  res.send("The Server is Running");
 });
 
 app.use("/videos", videos);
