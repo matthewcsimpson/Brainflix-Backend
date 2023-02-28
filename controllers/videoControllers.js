@@ -76,4 +76,31 @@ const postNewVideo = (req, res) => {
     });
   }
 
-module.exports = { getAllVideos, getVideoById };
+  const postNewComment = (req, res) => {
+    const newComment = {
+      id: uuid4(),
+      name: "Testing Testerson III",
+      comment: req.body.comment,
+      likes: 0,
+      timestamp: req.body.timestamp,
+    };
+  
+    loadVideos((err, data) => {
+      if (err) {
+        console.error(err);
+      } else {
+        const videoList = JSON.parse(data);
+  
+        console.log(
+          videoList
+            .find((vid) => vid.id === req.body.videoid)
+            .comments.push(newComment)
+        );
+  
+        writeVideos(JSON.stringify(videoList));
+        res.status(201).json(newComment);
+      }
+    });
+  }
+
+module.exports = { getAllVideos, getVideoById, postNewComment };
