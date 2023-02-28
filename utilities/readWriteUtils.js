@@ -1,6 +1,5 @@
 const fs = require("fs");
 
-
 /**
  * Load the video list from the JSON file.
  * @param {function} callback
@@ -18,13 +17,11 @@ const writeVideos = (callback) => {
     if (err) {
       console.error(err);
     } else {
-      console.info(
-        loadVideos((err, data) => {
-          if (err) {
-            console.error(err);
-          }
-        })
-      );
+      loadVideos((err, _data) => {
+        if (err) {
+          console.error("load video error", err);
+        }
+      });
     }
   });
 };
