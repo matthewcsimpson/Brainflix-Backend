@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
+const PORT = process.env.PORT || 8080
+
 // video routes
 const videos = require("./routes/videos");
 
@@ -24,6 +26,6 @@ app.get("/", (_req, res) => {
 
 app.use("/videos", videos);
 
-app.listen(8888, () => {
+app.listen(PORT, () => {
   console.info(`Server running on port ${8888}`);
 });
