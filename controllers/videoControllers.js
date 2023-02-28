@@ -1,3 +1,6 @@
+// Libraries 
+const { v4: uuid4 } = require("uuid");
+
 // Utlitiy Functions
 const { loadVideos, writeVideos } = require("../utilities/readWriteUtils");
 
@@ -76,6 +79,11 @@ const postNewVideo = (req, res) => {
     });
   }
 
+  /**
+   * FUNCTION to post a new comment to a specified video. 
+   * @param {*} req 
+   * @param {*} res 
+   */
   const postNewComment = (req, res) => {
     const newComment = {
       id: uuid4(),
