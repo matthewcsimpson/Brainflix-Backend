@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 src/data/api_data.json
 data/videos-backup.json
+
+/other

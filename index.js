@@ -12,13 +12,13 @@ app.use(express.static("public"));
 app.use(cors());
 
 // console log all requests
-app.use((req, res, next) => {
+app.use((req, _res, next) => {
   console.info(`Incoming request from ${req.originalUrl}`);
   next();
 });
 
 // get the main page
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("I'm here, yo");
 });
 

@@ -34,8 +34,8 @@ const writeVideos = (callback) => {
 /**
  * GET endpoint to return a simplified list of videos
  */
-router.get("/", (req, res) => {
-  loadVideos((err, data) => {
+router.get("/", (_req, res) => {
+  loadVideos(function (err, data) {
     if (err) {
       console.error(err);
       res.send(err);
