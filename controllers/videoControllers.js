@@ -102,7 +102,8 @@ const postNewComment = (req, res) => {
         .find((vid) => vid.id === req.body.videoid)
         .comments.push(newComment);
       writeVideos(JSON.stringify(videoList));
-      res.status(201).json("Thanks for commenting!", newComment);
+      res.status(201).json(newComment);
+      
     }
   });
 };
