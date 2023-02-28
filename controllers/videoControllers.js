@@ -13,7 +13,7 @@ const getAllVideos = (_req, res) => {
   loadVideos(function (err, data) {
     if (err) {
       console.error(err);
-      res.send(err);
+      res.send("Error getting videos", err);
     } else {
       const videoList = JSON.parse(data);
       res.json(
@@ -38,7 +38,7 @@ const getAllVideos = (_req, res) => {
 const getVideoById = (req, res) => {
   loadVideos((err, data) => {
     if (err) {
-      console.error(err);
+      console.error("Error getting video", err);
       res.send("error finding the video!");
     } else {
       const videoList = JSON.parse(data);
@@ -111,4 +111,4 @@ const postNewVideo = (req, res) => {
     });
   }
 
-module.exports = { getAllVideos, getVideoById, postNewComment };
+module.exports = { getAllVideos, getVideoById, postNewVideo, postNewComment };

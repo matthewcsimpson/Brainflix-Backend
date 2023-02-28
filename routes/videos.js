@@ -4,6 +4,7 @@ const router = express.Router();
 const {
   getAllVideos,
   getVideoById,
+  postNewVideo,
   postNewComment,
 } = require("../controllers/videoControllers");
 
@@ -20,7 +21,7 @@ router.get("/:id", getVideoById);
 /**
  * POST endpoint to add a new video to the list.
  */
-router.post("/");
+router.post("/", postNewVideo);
 
 router.post("/:id/comments", postNewComment);
 
